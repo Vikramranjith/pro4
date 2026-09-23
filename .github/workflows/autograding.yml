@@ -1,0 +1,19 @@
+name: SELinux Practical Autograding
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout student submission
+        uses: actions/checkout@v4
+
+      - name: Give execute permission
+        run: chmod +x test.sh
+
+      - name: Run command validation
+        run: ./test.sh
